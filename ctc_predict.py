@@ -56,6 +56,9 @@ prediction = sess.run(decoded,
                       })
 
 str_predictions = ctc_utils.sparse_tensor_to_strs(prediction)
+sheetnotes = []
 for w in str_predictions[0]:
-    print (int2word[w]),
-    print ('\t'),
+    if int2word[w].startswith("note-"):
+         sheetnotes.append(int2word[w])
+         #print (int2word[w]),
+         #print ('\t'),
